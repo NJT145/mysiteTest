@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Entry {{ entry_id }} - User: "{{ request.user.username }}"</title>
+</head>
+
+<body>
+    <h2>Blog Entry {{ entry_id }} for user "{{ request.user.username }}":</h2>
+    <h3>User's Registration date: "{{ request.user.date_joined }}"</h3><hr /><hr />
+    <h3>Blog Entry {{ entry_id }} :</h3>
+    <u>{{ blog_entry.name }}</u><br/>
+    <table>
+        <tr><td>  {{ blog_entry.description }}</tr>
+        {% for tag in blog_entry.tags.all %}
+        <tr><td>  ##} {{ tag.name }}</td></tr>
+        {% endfor  %}
+    </table><br/><hr />
+
+</body>
+
+<h3>
+    <a href="/blog/entries">other entries...</a><br/><br/>
+    <a href="/todos/">ToDo List</a><br/><br/>
+    <a href="/users/logout">Logout</a>
+</h3>
+
+</html>
